@@ -62,7 +62,9 @@ def clean_age(x):
 @st.cache
 
 def load_data():
-	df = pd.read_csv("survey_results_public.csv")
+	url = 'https://drive.google.com/file/d/1SVTDQ_l0ShFgKZHE0lYAn7TwJD6_COwa/view?usp=sharing'
+	path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
+	df = pd.read_csv(path)
 	df = df[["Country","EdLevel","YearsCodePro","Employment","Age","Gender","ConvertedCompYearly"]]
 	df = df[df["ConvertedCompYearly"].notnull()]
 	df = df.dropna()
